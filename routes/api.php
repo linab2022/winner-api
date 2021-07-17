@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('register', 'API\AuthController@register');
 Route::post('login', 'API\AuthController@login');
 Route::post('changeAdminPassword', 'API\AuthController@changeAdminPassword')->middleware('auth:api');
-Route::post('showusers', 'API\AuthController@showusers')->middleware('auth:api');
+Route::post('showUsers', 'API\AuthController@showUsers')->middleware('auth:api');
 Route::post('deleteUser/{id}', 'API\AuthController@deleteUser')->middleware('auth:api');
 
 Route::post('addParticipant', 'API\ParticipantController@addParticipant')->middleware('auth:api');
