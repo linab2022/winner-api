@@ -90,7 +90,7 @@ class AuthController extends BaseController
         }
     }
 
-    public function showusers()
+    public function showUsers()
     {
         try {
             $user=User::find(Auth::id());
