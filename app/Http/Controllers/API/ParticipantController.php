@@ -89,8 +89,7 @@ class ParticipantController extends BaseController
                     return $this->SendError('Participant is not found');
                 $deletedParticipant->delete();
                 return $this->SendResponse($deletedParticipant, 'Participant is deleted Successfully!');
-            }
-            else
+            }            
             else
                 return $this->SendError('You do not have rights to delete participant');            
         } catch (\Throwable $th) {
