@@ -30,7 +30,7 @@ class AuthController extends BaseController
             $user=User::create($input);
             $success['token']=$user->createToken('12345678')->accessToken;
             $success['name']=$user->name;
-            // $success['is_admin'] = $user->is_admin;
+            $success['is_admin'] = 0;
             return $this->sendResponse($success, 'User is registered Successfully!');
         } catch (\Throwable $th) {
             return $this->SendError('Error',$th->getMessage());
@@ -55,6 +55,7 @@ class AuthController extends BaseController
                 $user = Auth::user();
                 $success['token']= $user->createToken('12345678')->accessToken;
                 $success['name']=$user->name;
+                $success['is_admin']=$user->is_admin;
                 return $this->sendResponse($success, 'User is login Successfully');
             }
             else
