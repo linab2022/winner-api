@@ -82,9 +82,7 @@ class ParticipantController extends BaseController
     {
         try {
             $user=User::find(Auth::id());
-            if($user->is_admin !=1)
-                return $this->sendError('You do not have rights to access, You must be admin');
-            else
+            if($user->is_admin == 1)
             {
                 $deletedParticipant=Participant::find($id);
                 if(is_null($deletedParticipant))
@@ -92,6 +90,9 @@ class ParticipantController extends BaseController
                 $deletedParticipant->delete();
                 return $this->SendResponse($deletedParticipant, 'Participant is deleted Successfully!');
             }
+            else
+            else
+                return $this->SendError('You do not have rights to delete participant');            
         } catch (\Throwable $th) {
             return $this->SendError('Error',$th->getMessage());
         }
